@@ -1,0 +1,9 @@
+parameters:
+    confirm.form.class: SymfonyContrib\Bundle\ConfirmBundle\Form\ConfirmForm
+
+services:
+    confirm.form:
+        class: %confirm.form.class%
+        tags:
+            - name: form.type
+              alias: confirm_form
