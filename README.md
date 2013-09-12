@@ -18,7 +18,7 @@ Installation is the same as a normal bundle. http://symfony.com/doc/current/cook
 
 ## Usage
 
-Using the ConfirmBundle is very simple. In short, you simple forward your request
+Using the ConfirmBundle is very simple. In short, you simply forward your request
 with some options.
 
 Example:
