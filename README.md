@@ -51,10 +51,10 @@ public function delete($args)
 
 ### Options
 * **message:** (string) Message displayed to user.
-* **warning:** [Optional] (string) A warning to display to the user.
+* **warning:** (Optional) (string) A warning to display to the user.
 * **confirmButtonText:** (string) Text for positive confirmation button.
 * **confirmAction:** (mixed) PHP callable. http://php.net/manual/en/language.types.callable.php
-* **confirmActionArgs:** [Optional] (array) Array of arguments that will be passed to the confirmAction callable as an array argument.
+* **confirmActionArgs:** (Optional) (array) Array of arguments that will be passed to the confirmAction callable as an array argument.
 * **cancelLinkText:** (string) Text for negative cancellation link.
 * **cancelUrl:** (string) URL that will be used for the cancel action link.
 
