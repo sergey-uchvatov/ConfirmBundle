@@ -29,7 +29,7 @@ class ConfirmController extends Controller
         }
 
         return $this->render(
-            'SymfonyContribConfirmBundle:Confirm:confirm.html.twig',
+            'ConfirmBundle:Confirm:confirm.html.twig',
             [
                 'form' => $form->createView(),
                 'options' => $options,

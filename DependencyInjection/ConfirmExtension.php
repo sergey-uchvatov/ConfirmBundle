@@ -13,13 +13,13 @@ use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class SymfonyContribConfirmExtension extends Extension implements PrependExtensionInterface
+class ConfirmExtension extends Extension implements PrependExtensionInterface
 {
 
     /**
      * @var string Template file for the confirm form.
      */
-    public $formTemplate = 'SymfonyContribConfirmBundle:Form:confirm-form.html.twig';
+    public $formTemplate = 'ConfirmBundle:Form:confirm-form.html.twig';
 
     /**
      * {@inheritDoc}

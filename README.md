@@ -16,6 +16,13 @@ This is a very common scenario and so is an area where code can easily be duplic
 
 Installation is the same as a normal bundle. http://symfony.com/doc/current/cookbook/bundles/installation.html
 
+* Add bundle to composer
+* Add bundle to AppKernel.php:
+
+```php
+new SymfonyContrib\Bundle\ConfirmBundle\ConfirmBundle(),
+```
+
 ## Usage
 
 Using the ConfirmBundle is very simple. In short, you simply forward your request
@@ -38,7 +45,7 @@ public function objectDeleteAction($object)
         'cancelUrl' => $this->generateUrl('acme_home'),
     ];
 
-    return $this->forward('SymfonyContribConfirmBundle:Confirm:confirm', ['options' => $options]);
+    return $this->forward('ConfirmBundle:Confirm:confirm', ['options' => $options]);
 }
 
 public function delete($args)

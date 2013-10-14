@@ -21,6 +21,7 @@ class ConfirmForm extends AbstractType
         // Add submit button that confirms requested action.
         $builder->add('confirm', 'submit', [
             'label' => $options['confirmButtonText'],
+
         ]);
     }
 
