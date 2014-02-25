@@ -2,25 +2,40 @@
 
 # Symfony2 ConfirmBundle
 
-Provides a simple confirmation form & page to confirm an action.
+Provides a simple form to confirm an action.
 
 ## Use Case
 
+This is **NOT** for simple JavaScript confirmations.
+
 If you are going to delete an object and want to confirm with the user that they
 really do want to delete the object, you will usually send them to a confirmation
-page for verification.
+page for approval.
 
-This is a very common scenario and so is an area where code can easily be duplicated.
-
-## Installation
+Installation
+============
 
 Installation is the same as a normal bundle. http://symfony.com/doc/current/cookbook/bundles/installation.html
 
-* Add bundle to composer
-* Add bundle to AppKernel.php:
+### 1. Add the bundle to your composer.json
+
+```
+"require": {
+    ...
+    "symfonycontrib/confirm-bundle": "@stable"
+}
+```
+
+### 2. Install the bundle using composer
+
+```bash
+$ composer update symfonycontrib/confirm-bundle
+```
+
+### 3. Add this bundle to your application's kernel:
 
 ```php
-new SymfonyContrib\Bundle\ConfirmBundle\ConfirmBundle(),
+    new SymfonyContrib\Bundle\ConfirmBundle\ConfirmBundle(),
 ```
 
 ## Usage
@@ -36,13 +51,13 @@ public function objectDeleteAction($object)
     $options = [
         'message' => 'Are you sure you want to DELETE this?',
         'warning' => 'This can not be undone!',
-        'confirmButtonText' => 'Delete',
-        'confirmAction' => [$this, 'delete'],
-        'confirmActionArgs' => [
+        'confirm_button_text' => 'Delete',
+        'confirm_action' => [$this, 'delete'],
+        'confirm_action_args' => [
             'object' => $object,
         ],
-        'cancelLinkText' => 'Cancel',
-        'cancelUrl' => $this->generateUrl('acme_home'),
+        'cancel_link_text' => 'Cancel',
+        'cancel_url' => $this->generateUrl('acme_home'),
     ];
 
     return $this->forward('ConfirmBundle:Confirm:confirm', ['options' => $options]);
@@ -50,7 +65,7 @@ public function objectDeleteAction($object)
 
 public function delete($args)
 {
-    // delete object
+    // delete $args['object']
     // set flash message
     // redirect
 }
@@ -59,11 +74,11 @@ public function delete($args)
 ### Options
 * **message:** (string) Message displayed to user.
 * **warning:** (Optional) (string) A warning to display to the user.
-* **confirmButtonText:** (string) Text for positive confirmation button.
-* **confirmAction:** (mixed) PHP callable. http://php.net/manual/en/language.types.callable.php
-* **confirmActionArgs:** (Optional) (array) Array of arguments that will be passed to the confirmAction callable as an array argument.
-* **cancelLinkText:** (string) Text for negative cancellation link.
-* **cancelUrl:** (string) URL that will be used for the cancel action link.
+* **confirm_button_text:** (string) Text for positive confirmation button.
+* **confirm_action:** (mixed) PHP callable. http://php.net/manual/en/language.types.callable.php
+* **confirm_action_args:** (Optional) (array) Array of arguments that will be passed to the confirmAction callable as an array argument.
+* **cancel_link_text:** (string) Text for negative cancellation link.
+* **cancel_url:** (string) URL that will be used for the cancel action link.
 
 ### Views
 There are 3 twig templates provided to override how the form and page looks.

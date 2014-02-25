@@ -20,7 +20,7 @@ class ConfirmForm extends AbstractType
     {
         // Add submit button that confirms requested action.
         $builder->add('confirm', 'submit', [
-            'label' => $options['confirmButtonText'],
+            'label' => $options['confirm_button_text'],
             'attr' => [
                 'class' => 'btn-danger',
             ],
@@ -44,11 +44,11 @@ class ConfirmForm extends AbstractType
         $resolver->setDefaults([
             'message' => '',
             'warning' => '',
-            'confirmButtonText' => '',
-            'cancelLinkText' => '',
-            'confirmAction' => '',
-            'confirmActionArgs' => [],
-            'cancelUrl' => '',
+            'confirm_button_text' => '',
+            'cancel_link_text' => '',
+            'confirm_action' => '',
+            'confirm_action_args' => [],
+            'cancel_url' => '',
         ]);
     }
 
