@@ -17,8 +17,10 @@ This is a very common scenario and so is an area where code can easily be duplic
 Installation is the same as a normal bundle. http://symfony.com/doc/current/cookbook/bundles/installation.html
 
 * Add bundle to composer
+```sh
+composer require symfonycontrib/confirm-bundle
+```
 * Add bundle to AppKernel.php:
-
 ```php
 new SymfonyContrib\Bundle\ConfirmBundle\ConfirmBundle(),
 ```
