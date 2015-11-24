@@ -4,6 +4,7 @@ namespace SymfonyContrib\Bundle\ConfirmBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Session;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Confirmation controller.
@@ -12,9 +13,8 @@ use Symfony\Component\HttpFoundation\Session;
  */
 class ConfirmController extends Controller
 {
-    public function confirmAction(array $options = [])
+    public function confirmAction(Request $request, array $options = [])
     {
-        $request = $this->getRequest();
         $session = $this->get("session");
 
         $form = $this->createForm('confirm_form', null, $options);
@@ -25,8 +25,8 @@ class ConfirmController extends Controller
             // @see http://php.net/manual/en/language.types.callable.php
             if (is_callable($options['confirmAction'])) {
 
-                $args = $session->get('ConfirmBundle:Confirmation:'.$options['confirm_action'][1]);
-                $session->remove('ConfirmBundle:Confirmation:'.$options['confirm_action'][1]);
+                $args = $session->get('ConfirmBundle:Confirmation:'.$options['confirmAction'][1]);
+                $session->remove('ConfirmBundle:Confirmation:'.$options['confirmAction'][1]);
 
                 return call_user_func($options['confirmAction'], $args);
             } else {
@@ -34,7 +34,7 @@ class ConfirmController extends Controller
             }
         }
         else {
-            $session->set('ConfirmBundle:Confirmation:'.$options['confirm_action'][1], $options['confirm_action_args']);
+            $session->set('ConfirmBundle:Confirmation:'.$options['confirmAction'][1], $options['confirmActionArgs']);
         }
 
         return $this->render(
